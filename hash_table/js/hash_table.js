@@ -1,4 +1,5 @@
 var Trie = require('./../../tries/js/trie');
+// var Node = require('../../tries/js/trie_node');
 
 var HashTable = (function(){
   function HashTable() {
@@ -55,6 +56,65 @@ var HashTable = (function(){
       console.log(this.table[i]);
     }
   }
+
+HashTable.prototype.trieBuild = function(char, value) {
+
+var alphabet = ['a',
+'b',
+'c',
+'d',
+'e',
+'f',
+'g',
+'h',
+'i',
+'j',
+'k',
+'l',
+'m',
+'n',
+'o',
+'p',
+'q',
+'r',
+'s',
+'t',
+'u',
+'v',
+'w',
+'x',
+'y',
+'z']
+
+
+  
+ for(var i = 0; i < this.table.length; i++) {
+  console.log(alphabet[i])
+      this.table[i] = new Trie(alphabet[i])
+    }
+    
+}
+
+   HashTable.prototype.triePut = function(word, definition) {
+if (!this.table[0])
+{
+  this.trieBuild();
+}
+
+
+this.table[this.simpleHash(word[0].toUpperCase())].insert(word, definition)
+
+  }
+
+HashTable.prototype.trieGet = function(word) {
+if (!this.table[0])
+{
+  this.trieBuild();
+}
+
+  return this.table[this.simpleHash(word[0].toUpperCase())].get(word)
+}
+
 
   return HashTable;
 })();

@@ -3,9 +3,11 @@ var Node = require('./trie_node');
 var Trie = (function() {
   function Trie(chr) {
     this.root = new Node(chr, null);
+
   }
 
   Trie.prototype.insert = function(word, value) {
+  
     word = word.toUpperCase();
     var current = this.root;
 

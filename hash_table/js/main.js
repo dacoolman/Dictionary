@@ -9,8 +9,10 @@ for(word in words) {
     dictionary.triePut(safeWord, words[word]);
   }
 }
-
-dictionary.showDistribution();
-dictionary.trieGet("strength");
-dictionary.trieGet("apple");
-dictionary.trieGet("computer");
+// dictionary.triePut('ant', 'an insect')
+// console.log(dictionary.trieGet('ant'))
+// dictionary.showDistribution();
+console.log(dictionary.trieGet("strength"))
+console.log(dictionary.trieGet("apple"))
+console.log(dictionary.trieGet("computer"))
+console.log(dictionary.trieGet("human"))
